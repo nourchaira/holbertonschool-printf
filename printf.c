@@ -1,4 +1,3 @@
-// printf.c
 #include "main.h"
 #include <stddef.h>
 
