@@ -11,7 +11,7 @@ int _printf(const char * const format, ...)
     convert p[] = {
         {"%s", printf_string},
         {"%c", printf_char},
-        {"%%", print_37},
+        {"%%", print_percent},
         {"%i", print_i},
         {"%d", print_d},
     };
