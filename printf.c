@@ -1,63 +1,64 @@
+// printf.c
 #include "main.h"
 #include <stddef.h>
 
-int _printf(const char *const format, ...)
+int _printf(const char * const format, ...)
 {
-	convert p[] = {
-		{"%s", printf_string},
-		{"%c", printf_char},
-		{"%%", print_percent},
-		{"%i", print_i},
-		{"%d", print_d},
-	};
+    convert p[] = {
+        {"%s", printf_string},
+        {"%c", printf_char},
+        {"%%", print_percent},
+        {"%i", print_i},
+        {"%d", print_d},
+    };
 
-	va_list args;
-	int i = 0, j, length = 0;
+    va_list args;
+    int i = 0, j, length = 0;
 
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
+    va_start(args, format);
+    if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+        return (-1);
 
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%')
-		{
-			if (format[i + 1] == 'K')
-			{
-				_putchar('%');
-				_putchar('K');
-				length += 2;
-				i = i + 2;
-			}
-			else
-			{
-				j = 4; /* Number of format specifiers in the array */
-				while (j >= 0)
-				{
-					if (p[j].ph[0] == '%' && p[j].ph[1] == format[i + 1])
-					{
-						length += p[j].function(args);
-						i = i + 2;
-						break;
-					}
-					j--;
-				}
-				if (j < 0) // No matching format specifier found
-				{
-					_putchar('%');
-					length++;
-					i++;
-				}
-			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			length++;
-			i++;
-		}
-	}
+    while (format[i] != '\0')
+    {
+        if (format[i] == '%')
+        {
+            if (format[i + 1] == 'K')
+            {
+                _putchar('%');
+                _putchar('K');
+                length += 2;
+                i = i + 2;
+            }
+            else
+            {
+                j = 4; /* Number of format specifiers in the array */
+                while (j >= 0)
+                {
+                    if (p[j].ph[0] == '%' && p[j].ph[1] == format[i + 1])
+                    {
+                        length += p[j].function(args);
+                        i = i + 2;
+                        break;
+                    }
+                    j--;
+                }
+                if (j < 0)  // No matching format specifier found
+                {
+                    _putchar('%');
+                    length++;
+                    i++;
+                }
+            }
+        }
+        else
+        {
+            _putchar(format[i]);
+            length++;
+            i++;
+        }
+    }
 
-	va_end(args);
-	return (length);
+    va_end(args);
+    return (length);
 }
