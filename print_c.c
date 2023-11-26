@@ -3,13 +3,13 @@
 /**
  * printf_char - prints a char.
  * @val: arguments.
- * Return: .
+ * Return: 1.
  */
-int printf_char(va_list val);
+int printf_char(va_list val)
 {
-	char str;
+    char str;
 
-	str = va_arg(val, int);
-	_putchar(str);
-	return (1);
+    str = va_arg(val, int);
+    _putchar(str);
+    return (1);
 }
