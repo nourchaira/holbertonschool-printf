@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <stdarg.h>
+#include <stddef.h>
 
 typedef struct {
     char *ph;
