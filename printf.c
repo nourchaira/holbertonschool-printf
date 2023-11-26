@@ -23,32 +23,16 @@ int _printf(const char * const format, ...)
     {
         if (format[i] == '%')
         {
-            if (format[i + 1] == 'K')
+            j = 4; /* Number of format specifiers in the array */
+            while (j >= 0)
             {
-                _putchar('%');
-                _putchar('K');
-                length += 2;
-                i = i + 2;
-            }
-            else
-            {
-                j = 4; /* Number of format specifiers in the array */
-                while (j >= 0)
+                if (p[j].ph[0] == '%' && p[j].ph[1] == format[i + 1])
                 {
-                    if (p[j].ph[0] == '%' && p[j].ph[1] == format[i + 1])
-                    {
-                        length += p[j].function(args);
-                        i = i + 2;
-                        break;
-                    }
-                    j--;
+                    length += p[j].function(args);
+                    i = i + 2;
+                    break;
                 }
-                if (j < 0)  // No matching format specifier found
-                {
-                    _putchar('%');
-                    length++;
-                    i++;
-                }
+                j--;
             }
         }
         else
