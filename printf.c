@@ -1,11 +1,6 @@
 #include "main.h"
 #include <stddef.h>
 
-/**
- * _printf - is a function that selects the correct function to print.
- * @format: identifier to look for.
- * Return: the length of the string.
- */
 int _printf(const char * const format, ...)
 {
     convert p[] = {
@@ -27,7 +22,7 @@ int _printf(const char * const format, ...)
     {
         if (format[i] == '%')
         {
-            j = 4; // Number of format specifiers in the array
+            j = 4; /* Number of format specifiers in the array */
             while (j >= 0)
             {
                 if (p[j].ph[0] == '%' && p[j].ph[1] == format[i + 1])
