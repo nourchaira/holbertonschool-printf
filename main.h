@@ -3,6 +3,10 @@
 
 #include <stdarg.h>
 
+typedef struct {
+    char *ph;
+    int (*function)(va_list);
+} convert;
 
 int printf_char(va_list val);
 int _putchar(char c);
