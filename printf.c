@@ -18,7 +18,7 @@ int _printf(const char *const format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-	while (format[i] != '\0')
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -39,12 +39,15 @@ int _printf(const char *const format, ...)
 				}
 				j++;
 			}
-			i -= 1;
 		}
-		_putchar(format[i]);
-		length++;
-		i++;
+		else
+		{
+			_putchar(format[i]);
+			length++;
+			i++;
+		}
 	}
+
 	va_end(args);
 	return (length);
 }
