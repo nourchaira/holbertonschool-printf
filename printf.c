@@ -33,13 +33,13 @@ int _printf(const char *const format, ...)
 				j++;
 			}
 		}
-		i++;
 		else
 		{
 			_putchar(format[i]);
 			length++;
 			i++;
 		}
+		i++;
 	}
 
 	va_end(args);
