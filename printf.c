@@ -27,7 +27,7 @@ int _printf(const char *const format, ...)
 				if (p[j].ph == format[i + 1])
 				{
 					length += p[j].function(args);
-					i = i + 1;
+					i += 2;
 					break;
 				}
 				else if (p[j].ph == '\0')
