@@ -40,14 +40,11 @@ int _printf(const char *const format, ...)
 				j++;
 			}
 		}
-		else
-		{
-			_putchar(format[i]);
-			length++;
-			i++;
-		}
-	}
+		i -= 1;
+		_putchar(format[i]);
+		length++;
+		i++;
 
-	va_end(args);
-	return (length);
-}
+		va_end(args);
+		return (length);
+	}
