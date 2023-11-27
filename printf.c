@@ -31,7 +31,7 @@ int _printf(const char *const format, ...)
 					break;
 				}
 				j++;
-				else if (p[j].ph == '\0')
+				if (p[j].ph == '\0')
 				{
 					_putchar('%');
 					_putchar(format[i + 1]);
