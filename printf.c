@@ -30,6 +30,13 @@ int _printf(const char *const format, ...)
 					i = i + 1;
 					break;
 				}
+				else if (p[j].ph == '\0')
+				{
+					_putchar('%');
+					_putchar(format[i + 1]);
+					length += 2;
+					break;
+				}
 				j++;
 			}
 		}
