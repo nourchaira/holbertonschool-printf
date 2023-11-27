@@ -9,10 +9,11 @@ int _printf(const char *const format, ...)
 		{"%%", print_percent},
 		{"%i", print_i},
 		{"%d", print_d},
+		{"\0", NULL,
 	};
 
 	va_list args;
-	int i = 0, j, length = 0;
+	int i = 0, j = 0, length = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -22,24 +23,23 @@ int _printf(const char *const format, ...)
 	{
 		if (format[i] == '%')
 		{
-			j = 4; /* Number of format specifiers in the array */
-			while (j >= 0)
+			while (p[j].ph != '\0')
 			{
-				if (p[j].ph[0] == '%' && p[j].ph[1] == format[i + 1])
+				if (p[j].ph == format[i + 1])
 				{
 					length += p[j].function(args);
 					i = i + 2;
 					break;
 				}
-				j--;
+				j++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
 			length++;
+			i++;
 		}
-		i++;
 	}
 
 	va_end(args);
