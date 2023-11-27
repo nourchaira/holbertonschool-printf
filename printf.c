@@ -27,12 +27,13 @@ int _printf(const char *const format, ...)
 				if (p[j].ph == format[i + 1])
 				{
 					length += p[j].function(args);
-					i = i + 2;
+					i = i + 1;
 					break;
 				}
 				j++;
 			}
 		}
+		i++;
 		else
 		{
 			_putchar(format[i]);
