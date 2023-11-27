@@ -40,7 +40,7 @@ int _printf(const char *const format, ...)
 				}
 			}
 		}
-		else
+		else if (format[i] != '%')
 		{
 			_putchar(format[i]);
 			length++;
