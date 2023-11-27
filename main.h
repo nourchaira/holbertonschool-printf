@@ -6,8 +6,8 @@
 
 typedef struct
 {
-	char *ph;
-	int (*function)(va_list);
+	char ph;
+	int (*function)(va_list args);
 } convert;
 
 int printf_char(va_list val);
