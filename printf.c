@@ -3,12 +3,12 @@
 int _printf(const char *const format, ...)
 {
 	convert p[] = {
-		{"%s", printf_string},
-		{"%c", printf_char},
-		{"%%", print_percent},
-		{"%i", print_i},
-		{"%d", print_d},
-		{"\0", NULL},
+		{'s', printf_string},
+		{'c', printf_char},
+		{'%', print_percent},
+		{'i', print_i},
+		{'d', print_d},
+		{'0', NULL},
 	};
 
 	va_list args;
