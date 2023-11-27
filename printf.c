@@ -8,7 +8,7 @@ int _printf(const char *const format, ...)
 		{'%', print_percent},
 		{'i', print_i},
 		{'d', print_d},
-		{'0', NULL},
+		{'\0', NULL},
 	};
 
 	va_list args;
@@ -30,6 +30,7 @@ int _printf(const char *const format, ...)
 					i += 2;
 					break;
 				}
+				j++;
 				else if (p[j].ph == '\0')
 				{
 					_putchar('%');
@@ -37,7 +38,6 @@ int _printf(const char *const format, ...)
 					length += 2;
 					break;
 				}
-				j++;
 			}
 		}
 		else
