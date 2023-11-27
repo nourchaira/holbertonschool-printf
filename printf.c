@@ -8,7 +8,7 @@ int _printf(const char *const format, ...)
 		{"%%", print_percent},
 		{"%i", print_i},
 		{"%d", print_d},
-		{"\0", NULL,
+		{"\0", NULL},
 	};
 
 	va_list args;
