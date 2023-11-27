@@ -4,9 +4,10 @@
 #include <stdarg.h>
 #include <stddef.h>
 
-typedef struct {
-    char *ph;
-    int (*function)(va_list);
+typedef struct
+{
+	char *ph;
+	int (*function)(va_list);
 } convert;
 
 int printf_char(va_list val);
