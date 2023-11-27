@@ -38,8 +38,8 @@ int _printf(const char *const format, ...)
 		{
 			_putchar(format[i]);
 			length++;
-			i++;
 		}
+		i++;
 	}
 
 	va_end(args);
