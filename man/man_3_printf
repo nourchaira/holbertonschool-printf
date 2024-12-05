@@ -83,6 +83,5 @@ Contains the implementation of `print_percent`, which handles printing the perce
 .B printf(3)
 The standard `printf` function documentation.
 .SH AUTHOR
-Written by [Your Name], [Year].
+Written by [Nour chaira], [2024].
 .SH LICENSE
-This code is released under the [appropriate license] (if applicable).
