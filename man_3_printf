@@ -1,0 +1,87 @@
+.TH _PRINTF 3 "December 2024" "1.0" "Holberton School"
+.SH NAME
+_printf \- custom implementation of printf function
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.B int _printf(const char *format, ...);
+.SH DESCRIPTION
+The \fB_printf\fR function is a custom implementation of the standard C \fBprintf\fR function. It produces output according to a given format string, which may include format specifiers. The format specifiers are used to determine how subsequent arguments (if any) are printed.
+
+The supported format specifiers include:
+.TP
+.B %c
+Prints a single character.
+.TP
+.B %s
+Prints a string.
+.TP
+.B %d
+Prints a signed decimal integer.
+.TP
+.B %i
+Prints a signed integer.
+.TP
+.B %%
+Prints a percent sign (`%`).
+.PP
+Additional format specifiers may be added as required.
+.SH PARAMETERS
+.B format
+A string that specifies how subsequent arguments (if any) are printed. It can contain literal characters to be printed directly or format specifiers to represent arguments.
+
+.B ...
+A variable list of arguments corresponding to the format specifiers. These arguments are printed based on the format string.
+
+.SH RETURN VALUE
+The function returns the number of characters printed (excluding the null byte). If an error occurs (e.g., if the format string is `NULL`), the function returns \-1.
+
+.SH EXAMPLES
+.PP
+Example 1: Print a character:
+.B _printf("%c", 'A');
+.PP
+Output:
+.B A
+.TP
+Example 2: Print a string:
+.B _printf("%s", "Hello, World!");
+.PP
+Output:
+.B Hello, World!
+.TP
+Example 3: Print an integer:
+.B _printf("%d", 123);
+.PP
+Output:
+.B 123
+.TP
+Example 4: Print a percent sign:
+.B _printf("100%% correct.");
+.PP
+Output:
+.B 100% correct.
+.SH FILES
+.B main.h
+Header file that contains function declarations and necessary macros for the custom printf implementation.
+.PP
+.B print_c.c
+Contains the implementation of `printf_char`, which handles printing characters.
+.PP
+.B print_s.c
+Contains the implementation of `printf_string`, which handles printing strings.
+.PP
+.B print_d.c
+Contains the implementation of `print_d` for printing signed decimal integers.
+.PP
+.B print_i.c
+Contains the implementation of `print_i` for printing signed integers.
+.PP
+.B print_percent.c
+Contains the implementation of `print_percent`, which handles printing the percent sign (`%`).
+.SH SEE ALSO
+.B printf(3)
+The standard `printf` function documentation.
+.SH AUTHOR
+Written by [Nour chaira], [2024].
+.SH LICENSE
